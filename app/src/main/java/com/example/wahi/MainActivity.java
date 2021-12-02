@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ActivityCompat.requestPermissions(this, new String[]{RECORD_AUDIO, WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
-        textView = findViewById(R.id.textView);
+        //textView = findViewById(R.id.textView);
         textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
@@ -67,9 +67,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onError(int error) {
             }
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onResults(Bundle results) {
-                ArrayList<String> matches = results.getStringArrayList(speechRecognizer.RESULTS_RECOGNITION);
+                ArrayList<String> matches;
+                matches = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
                 String string = "";
                 textView.setText("");
                 if (matches != null){
@@ -101,24 +103,13 @@ public class MainActivity extends AppCompatActivity {
         speechRecognizer.startListening(intent);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void createMethod(){
-        File file = new File(Environment.getExternalStorageDirectory() + File.separator + "PersonalAssistant.txt");
+        textToSpeech.speak("yes start talking", TextToSpeech.QUEUE_FLUSH, null, null);
         try {
-            if (!file.exists()){
-                file.createNewFile();
-            }
-            FileWriter fileWriter = new FileWriter(file);
-            fileWriter.append("My 1st Personal voice assistance App development");
-            fileWriter.flush();
-            fileWriter.close();
-        }
-        catch (Exception e){
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
             e.printStackTrace();
-            return;
-        }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            textToSpeech.speak("The text file has been created. Thank you for using my service.", TextToSpeech.QUEUE_FLUSH, null, null);
         }
     }
 }
