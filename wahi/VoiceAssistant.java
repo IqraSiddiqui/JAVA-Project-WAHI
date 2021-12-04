@@ -13,7 +13,7 @@ import java.awt.Desktop;
 import java.net.URI;
 
 
-public class VoiceAssistant {
+public class VoiceAssistant implements Runnable {
     
     private LiveSpeechRecognizer recognizer;
     
@@ -121,7 +121,7 @@ public class VoiceAssistant {
                     openPlayer();
                 } else if (command.equalsIgnoreCase("close player")) {
                     closePlayer();
-                } else if(command.equalsIgnoreCase("Instructions")){ 
+                } else if(command.equalsIgnoreCase("Instruction")){ 
                     try {
                         AccessJDBC aj=new AccessJDBC();
                         aj.access();
@@ -384,7 +384,7 @@ public class VoiceAssistant {
         voice.speak(speechText);
     }
     
-    public static void main(String[] args) throws IOException {
+    public void run(){
         VoiceAssistant va = new VoiceAssistant();
         va.InitAssistant();
     }

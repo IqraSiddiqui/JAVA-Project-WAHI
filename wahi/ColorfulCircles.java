@@ -19,10 +19,10 @@ import javafx.util.Duration;
 import static java.lang.Math.random;
 import javafx.scene.text.*;
 
-public class ColorfulCircles extends Application {
+public class ColorfulCircles extends Application implements Runnable {
 
-    public static void main(String[] args) {
-        launch(args);
+    public void run() {
+        launch();
     }
     @Override
     public void start(Stage primaryStage) {
