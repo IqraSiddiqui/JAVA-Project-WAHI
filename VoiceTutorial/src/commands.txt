@@ -11,7 +11,7 @@ close browser
 close manager
 close team
 exit voice assistant
-
+Retreive commands
 
 
 

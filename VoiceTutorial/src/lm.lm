@@ -1,4 +1,4 @@
-Language model created by QuickLM on Thu Dec  2 18:39:17 EST 2021
+Language model created by QuickLM on Sat Dec  4 02:22:16 EST 2021
 Copyright (c) 1996-2010 Carnegie Mellon University and Alexander I. Rudnicky
 
 The model is in standard ARPA format, designed by Doug Paul while he was at MITRE.
@@ -7,48 +7,52 @@ The code that was used to produce this language model is available in Open Sourc
 Please visit http://www.speech.cs.cmu.edu/tools/ for more information
 
 The (fixed) discount mass is 0.5. The backoffs are computed using the ratio method.
-This model based on a corpus of 13 sentences and 19 words
+This model based on a corpus of 14 sentences and 21 words
 
 \data\
-ngram 1=19
-ngram 2=31
-ngram 3=26
+ngram 1=21
+ngram 2=34
+ngram 3=28
 
 \1-grams:
 -0.9031 </s> -0.3010
--0.9031 <s> -0.2334
--2.0170 ASSISTANT -0.2430
--1.7160 BROWSER -0.2430
--2.0170 CHATTING -0.2430
--1.5399 CLOSE -0.2752
--2.0170 EXIT -0.2968
--2.0170 FILE -0.2926
--2.0170 GOOGLE -0.2430
--2.0170 LMS -0.2430
--1.7160 MANAGER -0.2430
--1.3181 OPEN -0.2796
--2.0170 OUTLOOK -0.2430
--2.0170 PSCS -0.2430
--2.0170 START -0.2968
--1.7160 TEAM -0.2382
--2.0170 VIEWER -0.2430
--2.0170 VOICE -0.2968
--2.0170 YOUTUBE -0.2430
+-0.9031 <s> -0.2341
+-2.0492 ASSISTANT -0.2430
+-1.7482 BROWSER -0.2430
+-2.0492 CHATTING -0.2430
+-1.5721 CLOSE -0.2771
+-2.0492 COMMANDS -0.2430
+-2.0492 EXIT -0.2971
+-2.0492 FILE -0.2932
+-2.0492 GOOGLE -0.2430
+-2.0492 LMS -0.2430
+-1.7482 MANAGER -0.2430
+-1.3502 OPEN -0.2812
+-2.0492 OUTLOOK -0.2430
+-2.0492 PSCS -0.2430
+-2.0492 RETREIVE -0.2971
+-2.0492 START -0.2971
+-1.7482 TEAM -0.2386
+-2.0492 VIEWER -0.2430
+-2.0492 VOICE -0.2971
+-2.0492 YOUTUBE -0.2430
 
 \2-grams:
--1.4150 <s> BROWSER 0.0000
--0.9379 <s> CLOSE 0.0000
--1.4150 <s> EXIT 0.0000
--1.4150 <s> FILE 0.0000
--0.7160 <s> OPEN 0.0000
--1.4150 <s> START 0.0000
--1.4150 <s> TEAM -0.1761
+-1.4472 <s> BROWSER 0.0000
+-0.9700 <s> CLOSE 0.0000
+-1.4472 <s> EXIT 0.0000
+-1.4472 <s> FILE 0.0000
+-0.7482 <s> OPEN 0.0000
+-1.4472 <s> RETREIVE 0.0000
+-1.4472 <s> START 0.0000
+-1.4472 <s> TEAM -0.1761
 -0.3010 ASSISTANT </s> -0.3010
 -0.3010 BROWSER </s> -0.3010
 -0.3010 CHATTING </s> -0.3010
 -0.7782 CLOSE BROWSER 0.0000
 -0.7782 CLOSE MANAGER 0.0000
 -0.7782 CLOSE TEAM -0.1761
+-0.3010 COMMANDS </s> -0.3010
 -0.3010 EXIT VOICE 0.0000
 -0.3010 FILE MANAGER 0.0000
 -0.3010 GOOGLE </s> -0.3010
@@ -61,6 +65,7 @@ ngram 3=26
 -1.0000 OPEN YOUTUBE 0.0000
 -0.3010 OUTLOOK </s> -0.3010
 -0.3010 PSCS </s> -0.3010
+-0.3010 RETREIVE COMMANDS 0.0000
 -0.3010 START CHATTING 0.0000
 -0.6021 TEAM </s> -0.3010
 -0.6021 TEAM VIEWER 0.0000
@@ -80,6 +85,7 @@ ngram 3=26
 -1.0000 <s> OPEN OUTLOOK
 -1.0000 <s> OPEN PSCS
 -1.0000 <s> OPEN YOUTUBE
+-0.3010 <s> RETREIVE COMMANDS
 -0.3010 <s> START CHATTING
 -0.3010 <s> TEAM VIEWER
 -0.3010 CLOSE BROWSER </s>
@@ -92,6 +98,7 @@ ngram 3=26
 -0.3010 OPEN OUTLOOK </s>
 -0.3010 OPEN PSCS </s>
 -0.3010 OPEN YOUTUBE </s>
+-0.3010 RETREIVE COMMANDS </s>
 -0.3010 START CHATTING </s>
 -0.3010 TEAM VIEWER </s>
 -0.3010 VOICE ASSISTANT </s>

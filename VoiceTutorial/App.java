@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.LiveSpeechRecognizer;
-
+import java.io.*;
 import java.awt.Desktop;
 
 
@@ -120,7 +120,14 @@ public class App {
                     
                     System.out.println("Team Viewer Closed!");
                     
-                  }else if (result.equalsIgnoreCase("exit voice assistant")) {
+                  }else if(result.equalsIgnoreCase("Retreive commands")){
+                    AccessJDBC aj=new AccessJDBC();
+                    aj.access();
+                    File file=new File("WAHICommands.txt");
+                    desk.open(file);
+
+                  }
+                  else if (result.equalsIgnoreCase("exit voice assistant")) {
                     System.out.println("Exiting Program! Bye!");
                     break;
                   }
