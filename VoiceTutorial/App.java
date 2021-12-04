@@ -37,8 +37,8 @@ public class App {
     
             // create process to kill explorer
             ProcessBuilder killExplorerProcess = new ProcessBuilder("taskkill", "/f", "/im", "explorer.exe");
-
-            while (rec.getResult() != null) {
+            //gui.launchGUI(args);
+            while (rec.getResult() != null) {  
                 String result = rec.getResult().getHypothesis();
                 if (result.toLowerCase().equals("start chatting")){
                     System.out.println("Preparing your chatbot");
@@ -120,7 +120,7 @@ public class App {
                     
                     System.out.println("Team Viewer Closed!");
                     
-                  }else if(result.equalsIgnoreCase("Retreive commands")){
+                  }else if(result.equalsIgnoreCase("Retreive commands")){ //instructions
                     AccessJDBC aj=new AccessJDBC();
                     aj.access();
                     File file=new File("WAHICommands.txt");
@@ -132,7 +132,7 @@ public class App {
                     break;
                   }
                      
-                
+                 
             }
         } catch (Exception e) {
             System.err.println(e);

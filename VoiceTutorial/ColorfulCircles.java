@@ -17,17 +17,18 @@ import javafx.scene.shape.StrokeType;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import static java.lang.Math.random;
+import javafx.scene.text.*;
 
 public class ColorfulCircles extends Application {
 
     public static void main(String[] args) {
         launch(args);
     }
-
     @Override
     public void start(Stage primaryStage) {
         Group root = new Group();
         Scene scene = new Scene(root, 800, 600, Color.BLACK);
+        primaryStage.setTitle("WAHI Voice Assistant");
         primaryStage.setScene(scene);
         Group circles = new Group();
         for (int i = 0; i < 30; i++) {
@@ -53,7 +54,11 @@ public class ColorfulCircles extends Application {
                 new Group(new Group(new Rectangle(scene.getWidth(), scene.getHeight(),
                 Color.BLACK), circles), colors);
         colors.setBlendMode(BlendMode.OVERLAY);
+        Text gameover =new Text(800-500,600/2,"Listening..."); 
+        gameover.setFill(Color.WHITE);
+         gameover.setFont(Font.font("Chiller",FontWeight.BOLD,50));
         root.getChildren().add(blendModeGroup);
+        root.getChildren().add(gameover);
         circles.setEffect(new BoxBlur(10, 10, 3));
         Timeline timeline = new Timeline();
         for (Node circle : circles.getChildren()) {
@@ -67,7 +72,9 @@ public class ColorfulCircles extends Application {
         }
         // play 40s of animation
         timeline.play();
-
         primaryStage.show();
+       
+        
+        
     }
 }
