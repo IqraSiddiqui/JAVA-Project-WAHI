@@ -21,7 +21,7 @@ import javafx.scene.text.*;
 import javafx.scene.control.Button;
 
 
-public class ColorfulCircles extends Application implements Runnable {
+public class GUI extends Application implements Runnable {
 
     public void run() {
         launch();
