@@ -6,10 +6,22 @@ import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.LiveSpeechRecognizer;
 import java.io.*;
 import java.awt.Desktop;
+import com.sun.speech.freetts.Voice;
+import com.sun.speech.freetts.VoiceManager;
 
 
 public class App {
+
+  private static final String voiceNAME = "kevin16";
+  public static void speak(String speechText) {
+    Voice voice;
+    VoiceManager voiceManager = VoiceManager.getInstance();
+    voice = voiceManager.getVoice(voiceNAME);
+    voice.allocate();
+    voice.speak(speechText);
+}
     
+
     public static void main(String[] args) throws Exception {
         Configuration config = new Configuration();
         config.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
@@ -20,6 +32,8 @@ public class App {
             rec.startRecognition(true);
             Desktop desk = Desktop.getDesktop();
             //Bandicam Recorder
+            
+            
             ProcessBuilder ChromeProcess = new ProcessBuilder("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
     
     // create process to kill bandicam
@@ -38,7 +52,9 @@ public class App {
             // create process to kill explorer
             ProcessBuilder killExplorerProcess = new ProcessBuilder("taskkill", "/f", "/im", "explorer.exe");
             //gui.launchGUI(args);
+            
             while (rec.getResult() != null) {  
+              speak("I am ready to help");
                 String result = rec.getResult().getHypothesis();
                 if (result.toLowerCase().equals("start chatting")){
                     System.out.println("Preparing your chatbot");
@@ -125,6 +141,7 @@ public class App {
                     aj.access();
                     File file=new File("WAHICommands.txt");
                     desk.open(file);
+                    System.out.println("Commands retrieved");
 
                   }
                   else if (result.equalsIgnoreCase("exit voice assistant")) {
