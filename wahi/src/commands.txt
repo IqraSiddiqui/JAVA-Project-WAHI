@@ -34,3 +34,6 @@ close file manager
 open youtube
 open google
 start chatting
+0
+1
+2

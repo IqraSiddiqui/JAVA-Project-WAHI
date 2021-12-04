@@ -121,10 +121,30 @@ public class VoiceAssistant implements Runnable {
                     openPlayer();
                 } else if (command.equalsIgnoreCase("close player")) {
                     closePlayer();
-                } else if(command.equalsIgnoreCase("Instruction")){ 
+                }else if(command.equalsIgnoreCase("0")){ 
                     try {
                         AccessJDBC aj=new AccessJDBC();
-                        aj.access();
+                        aj.access("0");
+                        File file=new File("grocessory_lst.txt");
+                        desk.open(file);
+                        System.out.println("Grocery List");
+                    } catch (Exception e) {
+                        System.err.println(e);
+                    }
+                }else if(command.equalsIgnoreCase("1")){ 
+                    try {
+                        AccessJDBC aj=new AccessJDBC();
+                        aj.access("1");
+                        File file=new File("filteredgrocessory_lst.txt");
+                        desk.open(file);
+                        System.out.println("Filetered Grocery");
+                    } catch (Exception e) {
+                        System.err.println(e);
+                    }
+                } else if(command.equalsIgnoreCase("2")){ 
+                    try {
+                        AccessJDBC aj=new AccessJDBC();
+                        aj.access("1");
                         File file=new File("WAHICommands.txt");
                         desk.open(file);
                         System.out.println("Commands retrieved");
