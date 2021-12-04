@@ -1,4 +1,3 @@
-
 create database wahi;
 create table wahi_commands(id int, cmd varchar(255));
 insert into wahi_commands values (0, 'who are you'), (1, 'good morning'), (2, 'open chrome'), (3, 'close chrome'), (4, 'open microsoft edge'), (5, 'close microsoft edge'), (6, 'open word'), (7, 'close word'), (8, 'open excel'), (9, 'close excel'), (10, 'open power point'), (11, 'close power point'), (12, 'open paint'), (13, 'close paint'), (14, 'open command prompt'), (15, 'close command prompt'), (16, 'open control panel'), (17, 'close control panel'), (18, 'open calculator'), (19, 'close calculator'), (20, 'open player'), (21, 'close player'), (22, 'open notepad'), (23, 'close notepad'), (24, 'open lms'), (25, 'open pscs'), (26, 'open outlook'), (27, 'Instruction'), (28, 'wake up'), (29, 'sleep'), (30, 'exit Voice Assistant'), (31, 'open file manager'), (32, 'close file manager'), (33, 'open youtube'), (34, 'open google'), (35, 'start chatting');

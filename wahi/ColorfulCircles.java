@@ -18,6 +18,8 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import static java.lang.Math.random;
 import javafx.scene.text.*;
+import javafx.scene.control.Button;
+
 
 public class ColorfulCircles extends Application implements Runnable {
 
@@ -55,10 +57,12 @@ public class ColorfulCircles extends Application implements Runnable {
                 Color.BLACK), circles), colors);
         colors.setBlendMode(BlendMode.OVERLAY);
         Text gameover =new Text(800-500,600/2,"Listening..."); 
+        Button button = new Button("Switch to Light Mode");
         gameover.setFill(Color.WHITE);
          gameover.setFont(Font.font("Chiller",FontWeight.BOLD,50));
         root.getChildren().add(blendModeGroup);
         root.getChildren().add(gameover);
+        root.getChildren().add(button);
         circles.setEffect(new BoxBlur(10, 10, 3));
         Timeline timeline = new Timeline();
         for (Node circle : circles.getChildren()) {

@@ -4,30 +4,43 @@ import java.util.*;
 
 public class AccessJDBC {
 	public void access() {
-		//List data = new ArrayList();
-        BufferedWriter out = null;
+		ArrayList<String> data=new ArrayList<String>();
 		try {
 			Connection con = null;
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost/wahi_server", "root", "iqra12345");
 			Statement st = con.createStatement();
 			ResultSet rs = st.executeQuery("Select * from commands");
-            File file = new File("WAHICommands.txt");
-            file.createNewFile();
-			out = new BufferedWriter(new FileWriter(file, true));
-
 			while (rs.next()) {
-                out.newLine();
 				String id = String.valueOf(rs.getInt("id"));
-                out.write(id+" ");
 				String command = rs.getString("command");
-                out.write(command);
+				data.add(id+" "+command);
 			}
-			out.close();
+
 			rs.close();
 			st.close();
+			writetoFile(data);
+
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
+
+	public void writetoFile(ArrayList data){
+		try{
+		File file = new File("WAHICommands.txt");
+        file.createNewFile();
+		BufferedWriter out = null;
+		out = new BufferedWriter(new FileWriter(file, true));
+		for(int i=0;i<data.size();i++){
+			//System .out.print(a);
+			String a=String.valueOf(data.get(i));
+			out.write(a);
+			out.newLine();
+		}
+		out.close();
+	}catch(Exception e){
+		System.out.println(e);
+	}
+}
 }

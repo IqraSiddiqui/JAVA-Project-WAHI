@@ -12,3 +12,16 @@
 11 Exit Voice Assistant
 12 Browser
 13 Close browser
+1 Open Google
+2 Open Youtube
+3 Open LMS
+4 Open PSCS
+5 Open Outlook
+6 File Manager
+7 Close Manager
+8 Team Viewer
+9 Close Team
+10 Retreive commands
+11 Exit Voice Assistant
+12 Browser
+13 Close browser
