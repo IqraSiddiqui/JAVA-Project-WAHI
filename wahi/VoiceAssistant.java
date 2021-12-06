@@ -2,13 +2,7 @@ import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.LiveSpeechRecognizer;
 import edu.cmu.sphinx.api.SpeechResult;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.awt.AWTException;
-import java.io.*;
-import java.awt.Desktop;
-import java.net.URI;
+
 
 /* This is the mai class of our voice recognition that contains launguage and recognition configurations and start speech recognition and call the command inventory object to check commands and take corresponding action */
 public class VoiceAssistant implements Runnable {
