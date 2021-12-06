@@ -25,7 +25,6 @@ close notepad
 open lms
 open pscs
 open outlook
-Instruction
 wake up
 sleep
 exit Voice Assistant

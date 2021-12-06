@@ -3,6 +3,22 @@ import java.sql.*;
 import java.util.*;
 
 public class AccessJDBC {
+	public ResultSet accessLogin(){
+		ResultSet rs=null;
+		try{
+			Connection con = null;
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost/wahi", "root", "iqra12345");
+			Statement st = con.createStatement();
+			String cmd="select * from login";
+			rs = st.executeQuery(cmd);
+			
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return(rs);
+	}
+	
 	public void access(String sqlCommandid) {
 		ArrayList<String> data=new ArrayList<String>();
 		try {

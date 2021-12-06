@@ -16,9 +16,17 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeType;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.scene.layout.GridPane;
 import static java.lang.Math.random;
+import javafx.scene.layout.HBox;
+import javafx.scene.control.TextField;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.text.*;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 
 
 public class GUI extends Application implements Runnable {
@@ -57,12 +65,10 @@ public class GUI extends Application implements Runnable {
                 Color.BLACK), circles), colors);
         colors.setBlendMode(BlendMode.OVERLAY);
         Text gameover =new Text(800-500,600/2,"Listening..."); 
-        Button button = new Button("Switch to Light Mode");
         gameover.setFill(Color.WHITE);
          gameover.setFont(Font.font("Chiller",FontWeight.BOLD,50));
         root.getChildren().add(blendModeGroup);
         root.getChildren().add(gameover);
-        root.getChildren().add(button);
         circles.setEffect(new BoxBlur(10, 10, 3));
         Timeline timeline = new Timeline();
         for (Node circle : circles.getChildren()) {
@@ -76,9 +82,9 @@ public class GUI extends Application implements Runnable {
         }
         // play 40s of animation
         timeline.play();
-        primaryStage.show();
-       
-        
+
+        LoginScreen screen=new LoginScreen();
+        screen.screencontroller(primaryStage, scene);
         
     }
 }
