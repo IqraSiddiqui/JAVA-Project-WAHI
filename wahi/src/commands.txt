@@ -27,7 +27,6 @@ open pscs
 open outlook
 wake up
 sleep
-exit Voice Assistant
 open file manager
 close file manager
 open youtube
