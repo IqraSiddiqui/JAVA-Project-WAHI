@@ -1,6 +1,10 @@
 import com.sun.speech.freetts.Voice;
 import com.sun.speech.freetts.VoiceManager;
 
+/* 
+This class inagurates the wahi speaker so tht it can respond to user via speeck
+*/
+
 public class wahispeak {
     private static final String voiceNAME = "kevin16";
 

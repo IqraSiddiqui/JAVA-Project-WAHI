@@ -4,22 +4,28 @@ import java.awt.AWTException;
 import java.io.*;
 import java.awt.Desktop;
 
+/*
+This class contains all commands that WAHI can understand and takes the respective actions for every command. It creates corresponing class object and call respective functions for its execution
+*/
 public class CommandInventory {
-    private static final String voiceNAME = "kevin16";
+    private static final String voiceNAME = "kevin16"; //the speaker voice
     String work = null;
-    Desktop desk = Desktop.getDesktop();
-    Browse app=new Browse();
-    Chat bot=new Chat();
-    Launch localapp=new Launch();
-    CloseApp closelocalapp=new CloseApp();
-    wahispeak speaking=new wahispeak();
+    Desktop desk = Desktop.getDesktop(); //desktop object
+    Browse app=new Browse(); //browser object
+    Chat bot=new Chat(); //chatter object
+    Launch localapp=new Launch();  //launch app object
+    CloseApp closelocalapp=new CloseApp(); //closeapp object
+    wahispeak speaking=new wahispeak(); //speaker object
 
-    public void checkCommands(String command){
-            if(command.equalsIgnoreCase("who are you")) {
+    public void checkCommands(String command){ //method to check commands and call respective functions
+            if(command.equalsIgnoreCase("who are you")) { 
                 speaking.speak("I am WAHI, your assistant, i am here to help you");
             } else if(command.equalsIgnoreCase("good morning")) {
                 speaking.speak("Good Morning. How can i help?");
             } 
+
+            //local apps hence execute local app function to open corresponding applications
+
         else if (command.equalsIgnoreCase("open chrome")) {
             speaking.speak("Opening Google Chrome");
                 localapp.openChrome();
@@ -57,6 +63,9 @@ public class CommandInventory {
                 speaking.speak("Opening Paint");
                 localapp.openPaint();
             }
+
+            //local apps hence execute local app function to close corresponding applications
+
             else if (command.equalsIgnoreCase("close chrome")) {
                 speaking.speak("Closing google Chrome");
                 closelocalapp.closeChrome();
@@ -90,7 +99,10 @@ public class CommandInventory {
             }  else if (command.equalsIgnoreCase("close player")) {
                 speaking.speak("Closing Media Player");
                 closelocalapp.closePlayer();
-            }                    
+            }   
+            
+            //Executing sql query hence generate accessjdbc object and call access on the user provided sql command id to execute it
+
             else if(command.equalsIgnoreCase("0")){ 
                 try {
                     AccessJDBC aj=new AccessJDBC();
@@ -122,6 +134,9 @@ public class CommandInventory {
                     System.err.println(e);
                 }
             }
+
+            //online apps hence execute online app function to open corresponding applications
+
             else if(command.equalsIgnoreCase("Open lms")){
                 speaking.speak("Opening Habib LMS");
                 app.openLMS(desk);
@@ -147,6 +162,8 @@ public class CommandInventory {
                 bot.startChat(desk);
             }
 
+            //other wise no work has to be done 
+            
               else {
                 work = null;
             }

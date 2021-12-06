@@ -1,5 +1,9 @@
+/*
+Main class contains main function that runs wahi and its gui on different threads to avoid microsphone/speaker blockage
+*/
+
 public class Main
-{
+{ 
        public static void main(String[] args) {
         VoiceAssistant wahi = new VoiceAssistant();
         GUI gui=new GUI();

@@ -10,7 +10,7 @@ import java.io.*;
 import java.awt.Desktop;
 import java.net.URI;
 
-
+/* This is the mai class of our voice recognition that contains launguage and recognition configurations and start speech recognition and call the command inventory object to check commands and take corresponding action */
 public class VoiceAssistant implements Runnable {
     
     private LiveSpeechRecognizer recognizer;

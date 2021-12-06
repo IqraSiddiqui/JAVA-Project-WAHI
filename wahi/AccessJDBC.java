@@ -2,6 +2,16 @@ import java.io.*;
 import java.sql.*;
 import java.util.*;
 
+/*
+This class connects to wahi database that cntains threee tables:
+Table 1: login table that contains admin username and password
+Table 2: sqlcommands table that contain keys for different sql queries that WAHI can understand such as 0 for retreiving data from grocessory_lst table etc
+Tble 3: grocessory list table that has sample grocessory data 
+The accessLogin function retreive login credentials from login table and returns the result set to get checked by the entered text.
+access function takes in the id that user has said wahi to execute and runs the corresponding query and retrive data accordingly into a corresponding text file
+Writetofile() function writes down the retrieved data into a text file and siplays it to the user
+ */
+
 public class AccessJDBC {
 	public ResultSet accessLogin(){
 		ResultSet rs=null;

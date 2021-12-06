@@ -1,9 +1,12 @@
 import java.awt.Desktop;
 import java.net.URI;
 
+/*
+Browse class contains functions to browse different internet websites that WAHI can access and respond with to the user. 
+*/
 public class Browse {
     
-    public void openpscs(Desktop desk){
+    public void openpscs(Desktop desk){ //open habib's pscs
         try {
             URI uri = new URI("https://pscs.habib.edu.pk/");
             desk.browse(uri);
@@ -13,7 +16,7 @@ public class Browse {
             }
         
     }
-    public void openLMS(Desktop desk){
+    public void openLMS(Desktop desk){ //open habib LMS
         try {
             URI uri = new URI("https://habib.edu.pk/hulms/");
             desk.browse(uri);
@@ -24,7 +27,7 @@ public class Browse {
         
     }
 
-    public void openyoutube(Desktop desk){
+    public void openyoutube(Desktop desk){ //open youtube
         try {
             URI uri = new URI("http://youtube.com/");
             desk.browse(uri);
@@ -34,7 +37,7 @@ public class Browse {
             }
         
     }
-    public void openoutlook(Desktop desk){
+    public void openoutlook(Desktop desk){ //open outlook.com
         try {
             URI uri = new URI("www.outlook.com");
             desk.browse(uri);
@@ -44,7 +47,7 @@ public class Browse {
             }
         
     }
-    public void opengoogle(Desktop desk){
+    public void opengoogle(Desktop desk){ //open google.com
         try {
             URI uri = new URI("www.google.com");
             desk.browse(uri);

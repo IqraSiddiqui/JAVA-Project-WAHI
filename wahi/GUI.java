@@ -84,7 +84,7 @@ public class GUI extends Application implements Runnable {
         timeline.play();
 
         LoginScreen screen=new LoginScreen();
-        screen.screencontroller(primaryStage, scene);
+        screen.screencontroller(primaryStage, scene);  //login screen
         
     }
 }
