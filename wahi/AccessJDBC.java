@@ -12,8 +12,10 @@ access function takes in the id that user has said wahi to execute and runs the 
 Writetofile() function writes down the retrieved data into a text file and siplays it to the user
  */
 
-public class AccessJDBC {
+public class AccessJDBC{
+
 	public ResultSet accessLogin(){
+
 		ResultSet rs=null;
 		try{
 			Connection con = null;

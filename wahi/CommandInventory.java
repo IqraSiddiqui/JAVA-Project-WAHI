@@ -11,11 +11,13 @@ public class CommandInventory {
     private static final String voiceNAME = "kevin16"; //the speaker voice
     String work = null;
     Desktop desk = Desktop.getDesktop(); //desktop object
-    Browse app=new Browse(); //browser object
-    Chat bot=new Chat(); //chatter object
-    Launch localapp=new Launch();  //launch app object
-    CloseApp closelocalapp=new CloseApp(); //closeapp object
     wahispeak speaking=new wahispeak(); //speaker object
+    TasksFactory tasksFactory=new TasksFactory(); //generatin task factory
+    //Use the task Factory to get object of concrete class by passing a tasktype.
+    Tasks localapp=tasksFactory.getTask("Launch");
+    Tasks bot=tasksFactory.getTask("Chat");
+    Tasks app=tasksFactory.getTask("Browse");
+    Tasks closelocalapp=tasksFactory.getTask("Close");
 
     public void checkCommands(String command){ //method to check commands and call respective functions
             if(command.equalsIgnoreCase("who are you")) { 
@@ -28,77 +30,77 @@ public class CommandInventory {
 
         else if (command.equalsIgnoreCase("open chrome")) {
             speaking.speak("Opening Google Chrome");
-                localapp.openChrome();
+                localapp.performTask("openChrome", desk);
             } else if (command.equalsIgnoreCase("open microsoft edge")) {
                 speaking.speak("Opening Microsoft Edge");
-                localapp.openEdge();
+                localapp.performTask("openEdge", desk);
             }  else if (command.equalsIgnoreCase("open word")) {
                 speaking.speak("Opening Microsoft Word");
-                localapp.openWord();
+                localapp.performTask("openWord", desk);
             }else if (command.equalsIgnoreCase("open excel")) {
                 speaking.speak("Opening Microsoft Excel");
-                localapp.openExcel();
+                localapp.performTask("openExcel", desk);
             }else if (command.equalsIgnoreCase("open power point")) {
                 speaking.speak("Opening Microsoft Powerpoint");
-                localapp.openPowerPoint();
+                localapp.performTask("openPowerPoint", desk);
             }else if (command.equalsIgnoreCase("open notepad")) {
                 speaking.speak("Opening Notepad");
-                localapp.openNotePad();
+                localapp.performTask("openNotepad", desk);
             } else if (command.equalsIgnoreCase("open command prompt")) {
                 speaking.speak("Opening Command Prompt");
-                localapp.openCMD();
+                localapp.performTask("openCMD", desk);
             } else if (command.equalsIgnoreCase("open control panel")) {
                 speaking.speak("Opening control Panel");
-                localapp.openCP();
+                localapp.performTask("openCP", desk);
             }else if (command.equalsIgnoreCase("open calculator")) {
                 speaking.speak("Opening Calculator");
-                localapp.openCal();
+                localapp.performTask("openCal", desk);
             }else if(command.equalsIgnoreCase("Open file manager")){
                 speaking.speak("Opening explorer");
-                localapp.openExplorer();
+                localapp.performTask("openExplorer", desk);
             }else if (command.equalsIgnoreCase("open player")) {
                 speaking.speak("Opening Media Player");
-                localapp.openPlayer();
+                localapp.performTask("openPlayer", desk);
             }else if (command.equalsIgnoreCase("open paint")) {
                 speaking.speak("Opening Paint");
-                localapp.openPaint();
+                localapp.performTask("openPaint", desk);
             }
 
             //local apps hence execute local app function to close corresponding applications
 
             else if (command.equalsIgnoreCase("close chrome")) {
                 speaking.speak("Closing google Chrome");
-                closelocalapp.closeChrome();
+                closelocalapp.performTask("closeChrome", desk);
             } else if (command.equalsIgnoreCase("close microsoft edge")) {
                 speaking.speak("Closing Microsoft Edge");
-                closelocalapp.closeEdge();
+                closelocalapp.performTask("closeEdge", desk);
             } else if (command.equalsIgnoreCase("close word")) {
                 speaking.speak("Closing Microsft Word");
-                closelocalapp.closeWord();
+                closelocalapp.performTask("closeWord", desk);
             }  else if (command.equalsIgnoreCase("close excel")) {
                 speaking.speak("Closing microsoft excel");
-                closelocalapp.closeExcel();
+                closelocalapp.performTask("closeExcel", desk);
             }  else if (command.equalsIgnoreCase("close power point")) {
                 speaking.speak("Closing Powerpoint");
-                closelocalapp.closePowerPoint();
+                closelocalapp.performTask("closePowerPoint", desk);
             }  else if (command.equalsIgnoreCase("close paint")) {
                 speaking.speak("Closing Paint");
-                closelocalapp.closePaint();
+                closelocalapp.performTask("closePaint", desk);
             } else if (command.equalsIgnoreCase("close notepad")) {
                 speaking.speak("Closing Notepad");
-                closelocalapp.closeNotePad();
+                closelocalapp.performTask("closeNotepad", desk);
             }else if (command.equalsIgnoreCase("close command prompt")) {
                 speaking.speak("Closing command prompt");
-                closelocalapp.closeCMD();
+                closelocalapp.performTask("closeCMD", desk);
             }  else if (command.equalsIgnoreCase("close control panel")) {
                 speaking.speak("Closing control Panel");
-                closelocalapp.closeCP();
+                closelocalapp.performTask("closeCP", desk);
             } else if (command.equalsIgnoreCase("close calculator")) {
                 speaking.speak("Closing Calculator");
-                closelocalapp.closeCal();
+                closelocalapp.performTask("closeCal", desk);
             }  else if (command.equalsIgnoreCase("close player")) {
                 speaking.speak("Closing Media Player");
-                closelocalapp.closePlayer();
+                closelocalapp.performTask("closePlayer", desk);
             }   
             
             //Executing sql query hence generate accessjdbc object and call access on the user provided sql command id to execute it
@@ -139,27 +141,27 @@ public class CommandInventory {
 
             else if(command.equalsIgnoreCase("Open lms")){
                 speaking.speak("Opening Habib LMS");
-                app.openLMS(desk);
+                app.performTask("openLMS", desk);
             }
             else if(command.equalsIgnoreCase("Open pscs")){
                 speaking.speak("Opening PSCS");
-                app.openpscs(desk); 
+                app.performTask("openPscs", desk);
             }
             else if(command.equalsIgnoreCase("Open youtube")){
                 speaking.speak("Opening Youtube");
-                app.openyoutube(desk);
+                app.performTask("openYoutube", desk);
             }
             else if(command.equalsIgnoreCase("Open outlook")){
                 speaking.speak("Opening Outlook");
-                app.openoutlook(desk);
+                app.performTask("openOutlook", desk);
             }
             else if(command.equalsIgnoreCase("open google")){
                 speaking.speak("Opening Google");
-                app.opengoogle(desk);
+                app.performTask("openGoogle", desk);
             }
             else if(command.equalsIgnoreCase("start chatting")){
                 speaking.speak("Preparing your chatbot");
-                bot.startChat(desk);
+                bot.performTask("Chat", desk);
             }
 
             //other wise no work has to be done 

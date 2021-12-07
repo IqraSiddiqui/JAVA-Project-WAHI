@@ -1,11 +1,41 @@
 import java.io.IOException;
+import java.awt.Desktop;
 /*
 This class launches the local applications that needs to be open. It contains methods for launching all applications that WAHI can launch
 */
 
-public class Launch {
+public class Launch implements Tasks {
     String work;
     Process p;
+
+    @Override
+    public void performTask(String what, Desktop desk){
+        if(what.equalsIgnoreCase("openChrome")){
+            openChrome();
+        }else if(what.equalsIgnoreCase("openedge")){
+            openEdge();
+        }else if(what.equalsIgnoreCase("openWord")){
+            openWord();
+        }else if(what.equalsIgnoreCase("openExcel")){
+            openExcel();
+        }else if(what.equalsIgnoreCase("openPowerPoint")){
+            openPowerPoint();
+        }else if(what.equalsIgnoreCase("openPaint")){
+            openPaint();
+        }else if(what.equalsIgnoreCase("openNotepad")){
+            openNotePad();
+        }else if(what.equalsIgnoreCase("openCMD")){
+            openCMD();
+        }else if(what.equalsIgnoreCase("openCP")){
+            openCP();
+        }else if(what.equalsIgnoreCase("openCal")){
+            openCal();
+        }else if(what.equalsIgnoreCase("openPlayer")){
+            openPlayer();
+        }else if(what.equalsIgnoreCase("openExplorer")){
+            openExplorer();
+        }
+    }
 
     public void openExplorer() { //method to launch file manager
         System.out.println("Opening FileManager");

@@ -4,7 +4,21 @@ import java.net.URI;
 /*
 Browse class contains functions to browse different internet websites that WAHI can access and respond with to the user. 
 */
-public class Browse {
+public class Browse implements Tasks {
+    @Override
+    public void performTask(String what, Desktop desk){
+        if(what.equalsIgnoreCase("openpscs"))
+            openpscs(desk);
+        else if(what.equalsIgnoreCase("openlms"))
+            openLMS(desk);
+        else if(what.equalsIgnoreCase("openyoutube"))
+            openyoutube(desk);
+        else if(what.equalsIgnoreCase("openoutlook"))
+            openoutlook(desk);
+        else if(what.equalsIgnoreCase("opengoogle"))
+            opengoogle(desk);
+        
+    }
     
     public void openpscs(Desktop desk){ //open habib's pscs
         try {
