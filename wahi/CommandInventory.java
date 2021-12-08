@@ -110,6 +110,7 @@ public class CommandInventory {
                     AccessJDBC aj=new AccessJDBC();
                     aj.access("0");
                     File file=new File("grocessory_lst.txt");
+                    speaking.speak("select all from from grocessory list");
                     desk.open(file);
                     System.out.println("Grocery List");
                 } catch (Exception e) {
@@ -120,6 +121,7 @@ public class CommandInventory {
                     AccessJDBC aj=new AccessJDBC();
                     aj.access("1");
                     File file=new File("filteredgrocessory_lst.txt");
+                    speaking.speak("select all from from grocessory list where price is greator than 10");
                     desk.open(file);
                     System.out.println("Filetered Grocery");
                 } catch (Exception e) {
@@ -128,8 +130,9 @@ public class CommandInventory {
             } else if(command.equalsIgnoreCase("2")){ 
                 try {
                     AccessJDBC aj=new AccessJDBC();
-                    aj.access("1");
+                    aj.access("2");
                     File file=new File("WAHICommands.txt");
+                    speaking.speak("select all from wahi commands");
                     desk.open(file);
                     System.out.println("Commands retrieved");
                 } catch (Exception e) {

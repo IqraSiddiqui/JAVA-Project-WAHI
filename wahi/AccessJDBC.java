@@ -14,6 +14,8 @@ Writetofile() function writes down the retrieved data into a text file and sipla
 
 public class AccessJDBC{
 
+	
+
 	public ResultSet accessLogin(){
 
 		ResultSet rs=null;
@@ -73,7 +75,7 @@ public class AccessJDBC{
 			rs = st.executeQuery(cmd);
 		while (rs.next()) {
 			String id = String.valueOf(rs.getInt("id"));
-			String command = rs.getString("command");
+			String command = rs.getString("cmd");
 			data.add(id+" "+command);
 		}
 		writetoFile(data,file);
