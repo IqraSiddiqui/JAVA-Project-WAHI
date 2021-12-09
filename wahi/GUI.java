@@ -30,6 +30,7 @@ import javafx.event.EventHandler;
 
 
 public class GUI extends Application implements Runnable {
+ 
 
     public void run() {
         launch();
@@ -38,16 +39,13 @@ public class GUI extends Application implements Runnable {
     public void start(Stage primaryStage) {
         Group root = new Group();
         Scene scene = new Scene(root, 800, 600, Color.BLACK);
+        //sets primary stage
         primaryStage.setTitle("WAHI Voice Assistant");
         primaryStage.setScene(scene);
+        //creates circles  shown on screen
         Group circles = new Group();
-        for (int i = 0; i < 30; i++) {
-            Circle circle = new Circle(150, Color.web("white", 0.05));
-            circle.setStrokeType(StrokeType.OUTSIDE);
-            circle.setStroke(Color.web("white", 0.16));
-            circle.setStrokeWidth(4);
-            circles.getChildren().add(circle);
-        }
+        circles=createCircles();
+        
         Rectangle colors = new Rectangle(scene.getWidth(), scene.getHeight(),
                 new LinearGradient(0f, 1f, 1f, 0f, true, CycleMethod.NO_CYCLE, new Stop[]{
                     new Stop(0, Color.web("#f8bd55")),
@@ -60,17 +58,50 @@ public class GUI extends Application implements Runnable {
                     new Stop(1, Color.web("#f2660f")),}));
         colors.widthProperty().bind(scene.widthProperty());
         colors.heightProperty().bind(scene.heightProperty());
+        //blending colors
         Group blendModeGroup =
                 new Group(new Group(new Rectangle(scene.getWidth(), scene.getHeight(),
                 Color.BLACK), circles), colors);
         colors.setBlendMode(BlendMode.OVERLAY);
+
+        //Text 
         Text gameover =new Text(800-500,600/2,"Listening..."); 
         gameover.setFill(Color.WHITE);
-         gameover.setFont(Font.font("Chiller",FontWeight.BOLD,50));
+        gameover.setFont(Font.font("Chiller",FontWeight.BOLD,50));
         root.getChildren().add(blendModeGroup);
         root.getChildren().add(gameover);
+
+        //changing the effect of circles
         circles.setEffect(new BoxBlur(10, 10, 3));
+        //the timeline is created to run the animation
         Timeline timeline = new Timeline();
+        timeline=createTimeline(circles);
+        
+        // play 40s of animation
+        timeline.play();
+        //creates the log in screen
+        LoginScreen screen=new LoginScreen();
+        screen.screencontroller(primaryStage, scene);  //login screen
+        
+    }
+
+    //function to create circles
+    public Group createCircles(){
+        Group circles=new Group();
+        for (int i = 0; i < 30; i++) {
+            Circle circle = new Circle(150, Color.web("white", 0.05));
+            circle.setStrokeType(StrokeType.OUTSIDE);
+            circle.setStroke(Color.web("white", 0.16));
+            circle.setStrokeWidth(4);
+            circles.getChildren().add(circle);
+        }
+        return circles;
+    }
+
+    //function to create timeline to run the animation
+
+    public Timeline createTimeline(Group circles){
+        Timeline timeline=new Timeline();
         for (Node circle : circles.getChildren()) {
             timeline.getKeyFrames().addAll(
                     new KeyFrame(Duration.ZERO, // set start position at 0
@@ -80,11 +111,6 @@ public class GUI extends Application implements Runnable {
                     new KeyValue(circle.translateXProperty(), random() * 800),
                     new KeyValue(circle.translateYProperty(), random() * 600)));
         }
-        // play 40s of animation
-        timeline.play();
-
-        LoginScreen screen=new LoginScreen();
-        screen.screencontroller(primaryStage, scene);  //login screen
-        
+        return timeline;
     }
 }
