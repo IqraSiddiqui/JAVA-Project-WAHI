@@ -5,7 +5,7 @@ Main class contains main function that runs wahi and its gui on different thread
 public class Main
 { 
        public static void main(String[] args) {
-        //VoiceAssistant wahi = new VoiceAssistant();
+
         VoiceAssistant wahi=VoiceAssistant.getInstance();
         GUI gui=new GUI();
         
@@ -13,7 +13,6 @@ public class Main
         Thread guithread=new Thread(gui);
         wahithread.start();
         guithread.start();
-        //gui.start();
-
+        
     }
 }

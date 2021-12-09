@@ -31,10 +31,10 @@ import javafx.event.EventHandler;
 
 public class GUI extends Application implements Runnable {
  
-
     public void run() {
         launch();
     }
+    
     @Override
     public void start(Stage primaryStage) {
         Group root = new Group();
