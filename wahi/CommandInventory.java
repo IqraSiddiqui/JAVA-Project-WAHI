@@ -3,6 +3,7 @@ import com.sun.speech.freetts.VoiceManager;
 import java.awt.AWTException;
 import java.io.*;
 import java.awt.Desktop;
+import java.util.*;
 
 /*
 This class contains all commands that WAHI can understand and takes the respective actions for every command. It creates corresponing class object and call respective functions for its execution
@@ -13,13 +14,21 @@ public class CommandInventory {
     Desktop desk = Desktop.getDesktop(); //desktop object
     wahispeak speaking=new wahispeak(); //speaker object
     TasksFactory tasksFactory=new TasksFactory(); //generatin task factory
-    //Use the task Factory to get object of concrete class by passing a tasktype.
-    Tasks localapp=tasksFactory.getTask("Launch");
-    Tasks bot=tasksFactory.getTask("Chat");
-    Tasks app=tasksFactory.getTask("Browse");
-    Tasks closelocalapp=tasksFactory.getTask("Close");
+    ArrayList<Tasks> arrayy= new ArrayList<Tasks>();
+           
+
+
 
     public void checkCommands(String command){ //method to check commands and call respective functions
+            
+            //Use the task Factory to get object of concrete class by passing a tasktype.
+            List<Tasks> namesList = Arrays.asList( tasksFactory.getTask("Launch"), tasksFactory.getTask("Chat") ,tasksFactory.getTask("Browse"), tasksFactory.getTask("Close"));
+            arrayy.addAll(namesList);
+            Tasks localapp=arrayy.get(0);
+            Tasks bot=arrayy.get(1);
+            Tasks app=arrayy.get(2);
+            Tasks closelocalapp=arrayy.get(3);
+
             if(command.equalsIgnoreCase("who are you")) { 
                 speaking.speak("I am WAHI, your assistant, i am here to help you");
             } else if(command.equalsIgnoreCase("good morning")) {
@@ -27,8 +36,8 @@ public class CommandInventory {
             } 
 
             //local apps hence execute local app function to open corresponding applications
-
-        else if (command.equalsIgnoreCase("open chrome")) {
+            //else{
+            else if (command.equalsIgnoreCase("open chrome")) {
             speaking.speak("Opening Google Chrome");
                 localapp.performTask("openChrome", desk);
             } else if (command.equalsIgnoreCase("open microsoft edge")) {

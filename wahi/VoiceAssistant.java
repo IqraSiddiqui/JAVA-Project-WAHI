@@ -6,6 +6,17 @@ import java.io.IOException;
 
 /* This is the mai class of our voice recognition that contains launguage and recognition configurations and start speech recognition and call the command inventory object to check commands and take corresponding action */
 public class VoiceAssistant implements Runnable {
+    //create an object of Singleton
+    private static VoiceAssistant instance=new VoiceAssistant();
+
+    //make the construtor private so that this class 
+    //cannot be instantiated
+    private VoiceAssistant(){};
+
+    //Get the only object available
+    public static VoiceAssistant getInstance(){
+        return instance;
+    }
     
     private LiveSpeechRecognizer recognizer;
     
